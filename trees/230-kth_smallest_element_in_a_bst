@@ -1,0 +1,42 @@
+'''
+Given the root of a binary search tree, and an integer k, return the kth smallest value (1-indexed) of all the values of the nodes in the tree.
+Input: root = [3,1,4,null,2], k = 1
+Output: 1
+Input: root = [5,3,6,2,4,null,null,1], k = 3
+Output: 3
+Constraints:
+The number of nodes in the tree is n.
+1 <= k <= n <= 104
+0 <= Node.val <= 104
+'''
+# Definition for a binary tree node.
+# class TreeNode:
+#     def __init__(self, val=0, left=None, right=None):
+#         self.val = val
+#         self.left = left
+#         self.right = right
+
+'''
+Do in order traversal, i.e. left -> node -> right. This will give non decreasing seq. for BST. When you reach k return.
+E.g.1 1 -> 2 -> 3 -> 4
+E.g.2 1 -> 2 -> 3 -> 4 -> 5 -> 6
+In order traversal -> Visit inorder(left), visit root, inorder(right). Implement with recursion
+'''
+def inorder(node, arr):
+    if node.left is not None:
+        arr = inorder(node.left, arr)
+    if node is not None:
+        arr.append(node.val)
+    if node.right is not None:
+        arr = inorder(node.right, arr)
+    return arr
+
+
+class Solution:
+    def kthSmallest(self, root: Optional[TreeNode], k: int) -> int:
+        arr = []
+        arr = inorder(root, arr)
+        if len(arr) >= k:
+            return arr[k-1]
+
+        
