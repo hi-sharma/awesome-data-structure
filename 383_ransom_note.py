@@ -17,3 +17,11 @@ class Solution:
 {a : 1, b: 1}
 {"a": 2, "b": 1}
 '''
+
+'''
+Time complexity: O(m)
+    m is size of magazine. Magazine size > ransomNote size, otherwise we do not have enough characters to construct ransomNote
+Space complexity: O(1)
+    magazine only has lowercase english letters, so only 26 keys or constant space complexity
+'''
+
