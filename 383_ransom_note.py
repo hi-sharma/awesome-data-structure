@@ -21,7 +21,9 @@ class Solution:
 '''
 Time complexity: O(m)
     m is size of magazine. Magazine size > ransomNote size, otherwise we do not have enough characters to construct ransomNote
-Space complexity: O(1)
-    magazine only has lowercase english letters, so only 26 keys or constant space complexity
+Space complexity: O(1), it is acutally O(log n)
+    O(1) reasoning: magazine only has lowercase english letters, so only 26 keys or constant space complexity
+    O(log n) reasoning: The number of occurrences of any given character is bounded by n, the length of the string. 
+        Storing this count requires O(log n) bits, where n is the total number of character. O(k⋅logn). Since k is fixed (26), we can simplify the space complexity to O(log n)
 '''
 
