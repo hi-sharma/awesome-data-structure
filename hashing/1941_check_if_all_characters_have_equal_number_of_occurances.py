@@ -2,7 +2,7 @@ from collections import defaultdict
 class Solution:
     def areOccurrencesEqual(self, s: str) -> bool:
         #O(n) time complexity
-        #O(n) space complexity
+        #O(k) space complexity  where k is number of possible charaters in english
         count = defaultdict(int)
         for char in s:
             count[char] += 1
