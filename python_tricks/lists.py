@@ -12,4 +12,9 @@ def print_col_2Dmatrix(mat: List[List[*]]) -> List[]:
       current_col.append(mat[row][col])
     print(col)
 
-
+def sum_linked_list(head):
+  ans = 0
+  while head:
+    ans += head.val
+    head = head.next
+  return ans
