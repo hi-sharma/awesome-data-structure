@@ -4,12 +4,12 @@ class Solution:
         n = len(nums)
         if n==1:
             return nums[0]
-        robFrom = [0]*(n+1)
+        robFrom = [0]*(n)
         # base case
-        robFrom[n] = nums[n-1]
-        robFrom[n-1] = max(nums[n-1], nums[n-2])
+        robFrom[n-1] = nums[n-1]
+        robFrom[n-2] = max(nums[n-1], nums[n-2])
         # dp[i] = max(dp[i] + robFrom(dp[i+2], db[i+1])
-        for i in range(n-2, -1, -1):
+        for i in range(n-3, -1, -1):
             robFrom[i] = max(nums[i] + robFrom[i+2], robFrom[i+1])
         return robFrom[0]
     
