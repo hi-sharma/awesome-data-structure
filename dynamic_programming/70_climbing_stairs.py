@@ -1,6 +1,6 @@
 class Solution:
     def climbStairs(self, n: int) -> int:
-        # Top down DP approach. O(n) time complexity and O(n) space complexity
+        # Top down DP approach. O(n) time complexity and O(1) space complexity
         if n <= 2:
             return n
         prev_prev_step = 1
