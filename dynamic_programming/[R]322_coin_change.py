@@ -4,21 +4,17 @@ class Solution:
         # dp array[i] which takes i/states is the amount and return the min # of coins that you need to make that amount
         # Space complexity O(amount) and time complexity O(amount*len(coins))
         n = len(coins)
-        dp = [0]*(amount+1)
+        dp = [float('inf')]*(amount+1)
         # base case
         dp[0] = 0
         # recurrence relation
-        for i in range(1, amount + 1):
-            min_val = float("inf")
-            for coin in coins:
-                if i - coin >= 0:
-                    min_val = min(min_val, 1 + dp[i - coin])
-            dp[i] = min_val
-        ans = dp[amount]
-        print(dp)
-        if ans == float("inf"):
+        for coin in coins:
+            for i in range(coin, amount + 1):
+                dp[i] = min(dp[i], 1 + dp[i - coin])
+        
+        if dp[amount] == float("inf"):
             return -1
-        return ans
+        return dp[amount]
 
 
 # # from functools import cache
