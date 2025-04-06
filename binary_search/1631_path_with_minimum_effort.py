@@ -1,4 +1,4 @@
-# O(m*n*k) where k = max(heights)
+# O(m*n*logk) where k = max(heights)
 class Solution:
     def minimumEffortPath(self, heights: List[List[int]]) -> int:
         def check_index(row, col):
