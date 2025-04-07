@@ -1,4 +1,3 @@
-# 11:11, 11:41
 # create two stacks, one for ( and another for *
 # O(n) time and O(n) space complexity
 from collections import defaultdict
